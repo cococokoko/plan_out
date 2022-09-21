@@ -28,7 +28,7 @@ Frontend/planout/node_modules/
 /coverage
 
 # production
-#Frontend/planout/build/*
+Frontend/planout/build/*
 
 # misc
 .DS_Store
