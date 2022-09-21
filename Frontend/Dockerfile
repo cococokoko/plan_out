@@ -1,18 +1,16 @@
-# pull official base image
-FROM node:13.12.0-alpine
+
+FROM node:12.16.3-alpine as build
 
 WORKDIR /planout
 
-ENV PATH /planout/node_modules/.bin:$PATH
-
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-
-# add app
 COPY . ./
 
-# start app
-CMD ["npm", "start"]
+# ---
+FROM fholzer/nginx-brotli:v1.12.2
+
+WORKDIR /etc/nginx
+ADD nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=build /planout/build /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
