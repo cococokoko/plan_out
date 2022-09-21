@@ -1,0 +1,42 @@
+*.env
+*.json
+api_testing.py
+.vscode
+
+# OS generated files #
+######################
+.idea/
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+__pycache__/
+
+# dependencies
+*node_modules/*
+**node_modules
+Frontend/planout/node_modules/
+**node_modules/.cache/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+Frontend/planout/build/*
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
