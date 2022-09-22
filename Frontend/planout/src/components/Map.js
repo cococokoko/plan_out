@@ -1,6 +1,5 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import config from "../config.js";
 import LocationOnTwoToneIcon from "@mui/icons-material/LocationOnTwoTone";
 import Tooltip from "@mui/material/Tooltip";
 import { Box } from "@mui/material";
@@ -14,7 +13,7 @@ const Map = ({
   return (
     // <div className="map">
     <GoogleMapReact
-      bootstrapURLKeys={{ key: {REACT_APP_GOOGLE_MAP_API_KEY} }}
+      bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
       defaultCenter={coordinates}
       center={coordinates}
       defaultZoom={15}
