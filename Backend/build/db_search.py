@@ -42,7 +42,7 @@ def places():
 
 def search(activity, date, guests, budget):
     with engine.connect() as connection:
-        query= f"SELECT place.id, place.name, place.kitchen, place.address, place.latitude, place.longitude, place.area, place.price, place.image, place.days, place.hours, place.menu_1, place.price_menu_1, place.menu_2, place.price_menu_2, place.details, place.rating, place.reviews, place.capacity FROM place INNER JOIN availabilites ON place.id=availabilites.place_id WHERE (place.activity='{activity}' AND place.capacity >= '{guests}' AND place.price_menu_1 <= '{budget}' AND availabilites.date = '{date}' AND availabilites.booking_id IS NULL)"
+        query= f"SELECT place.id, place.name, place.kitchen, place.address, place.latitude, place.longitude, place.area, place.price, place.image, place.days, place.hours, place.menu_1, place.price_menu_1, place.menu_2, place.price_menu_2, place.details, place.rating, place.reviews, place.capacity FROM place INNER JOIN availabilites ON place.id=availabilites.place_id WHERE (place.activity='{activity}' AND place.capacity >= '{guests}' AND place.price_menu_1 <= '{budget}' AND availabilites.date = '{date}' AND availabilites.booking_id IS NULL GROUP BY place.id)"
         search = connection.execute(query).fetchall()
         objects_list = []
         for row in search:
