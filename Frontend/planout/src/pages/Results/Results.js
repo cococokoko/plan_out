@@ -249,7 +249,17 @@ const Restaurants = ({
         ) : (
           
           <Box varient="body1" sx={styles.restosContentL}>
-            
+             <Box>
+            { places? (
+              <Typography varient="body2" fontSize={15}>
+                Options Available
+              </Typography>
+          ) : (
+            <Typography varient="body2" fontSize={15}>
+                No Options Available for the choosen dates
+              </Typography>
+          )}
+            </Box>
             {isLoading ? (
               <Box
                 style={{
@@ -265,7 +275,7 @@ const Restaurants = ({
                   width={100}
                 />
               </Box>
-            ) : (
+            ) : ( 
               places?.map((place, i) => (
                 <Box ref={elRefs[i]} key={i}>
                   {/* <hr style={styles.line2} /> */}
