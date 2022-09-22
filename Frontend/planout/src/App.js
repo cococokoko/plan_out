@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Rentals from "./pages/Rentals/Rentals";
+import Results from "./pages/Results/Results";
 import Details from "./pages/Details/Details";
 import Booking from "./pages/Booking/Booking";
 import Checkout from "./pages/Checkout/Checkout.jsx";
@@ -54,9 +54,9 @@ function App () {
         }
       />
       <Route
-        path="/rentals"
+        path="/map"
         element={
-          <Rentals
+          <Results
             autocomplete={autocomplete}
             bound={bound}
             setAutocomplete={setAutocomplete}

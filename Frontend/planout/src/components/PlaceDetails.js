@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const PlaceDetails = ({ selected, place, refProp, isMobile }) => {
   const isSmall = useMediaQuery("(max-width:420px)");
-  const rentalsList = {
+  const resultList = {
     attributes: {
       unoDescription: `${place.address}`,
       dosDescription: `${place.area}`,
@@ -111,10 +111,10 @@ const PlaceDetails = ({ selected, place, refProp, isMobile }) => {
         <Box sx={styles.rentalInfo}>
           <Box sx={styles.rentalTitle}>{place.name}</Box>
           <Box sx={styles.rentalDesc}>
-            {rentalsList.attributes.unoDescription}
+            {resultList.attributes.unoDescription}
           </Box>
           <Box sx={styles.rentalDesc}>
-            {rentalsList.attributes.dosDescription}
+            {resultList.attributes.dosDescription}
           </Box>
           <Box
             style={{

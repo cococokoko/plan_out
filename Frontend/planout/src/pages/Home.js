@@ -375,8 +375,8 @@ const Home = ({ user, onLoad, onPlaceChanged }) => {
                 cursor: "pointer",
               }),
             }}
-            onClick={() => {searchPlaces(function() { navigate("/rentals")});}}>
-            <IconButton onClick={() =>{searchPlaces(function() { navigate("/rentals")});}}>
+            onClick={() => {searchPlaces(function() { navigate("/map")});}}>
+            <IconButton onClick={() =>{searchPlaces(function() { navigate("/map")});}}>
               <SearchIcon
                 sx={{
                   color: "white",

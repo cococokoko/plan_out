@@ -249,17 +249,7 @@ const Restaurants = ({
         ) : (
           
           <Box varient="body1" sx={styles.restosContentL}>
-            <Box>
-            { places? (
-              <Typography varient="body2" fontSize={15}>
-                Options Available
-              </Typography>
-          ) : (
-            <Typography varient="body2" fontSize={15}>
-                No Options Available for the choosen dates
-              </Typography>
-          )}
-            </Box>
+            
             {isLoading ? (
               <Box
                 style={{
@@ -289,6 +279,7 @@ const Restaurants = ({
                   </Box>
                 </Box>
               ))
+            
             )}
           </Box>
         )}
