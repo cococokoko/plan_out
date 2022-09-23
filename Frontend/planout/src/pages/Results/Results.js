@@ -265,7 +265,7 @@ const Results = ({
                 />
               </Box>
             ) : ( 
-              places.map((place, i) => (
+              places?.map((place, i) => (
                 <Box ref={elRefs[i]} key={i}>
                   {/* <hr style={styles.line2} /> */}
                   <Divider sx={{ margin: "30px 0px" }} />
