@@ -17,6 +17,7 @@ export default function CheckoutForm() {
 
   React.useEffect(() => {
     if (!stripe) {
+      alert("Test card: 4242 4242 4242 4242")
       return;
     }
 

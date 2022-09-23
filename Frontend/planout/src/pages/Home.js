@@ -383,7 +383,7 @@ const Home = ({ user, onLoad, onPlaceChanged }) => {
               }),
             }}
             onClick={() => {searchPlaces(function() { navigate("/map")});}}>
-            <IconButton onClick={() =>{searchPlaces(function() { navigate("/map")});}}>
+            <IconButton>
               <SearchIcon
                 sx={{
                   color: "white",
