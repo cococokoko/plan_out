@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import SwipeableEdgeDrawer from "../../components/MobileDrawer";
-const Restaurants = ({
+const Results = ({
   user,
   coordinates,
   setCoordinates,
@@ -57,15 +57,16 @@ const Restaurants = ({
   } = useContext(searchFilterContext);
 
   useEffect(() => {
-    setIsLoading(true);
+    if(isLoading) {
     setDestination(localStorage.getItem("destination"));
     setDate(localStorage.getItem("date"));
     setTime(localStorage.getItem("time"));
     setGuests(localStorage.getItem("guests"));
     setPlaces(places.splice(0, places.length, ...localStorage.getItem("places")));
     setIsLoading(false);
-    return () => {};
-  }, []);
+    }
+  },  [isLoading]);
+
   const [elRefs, setElRefs] = useState([]);
 
   if (autocomplete) {
@@ -74,7 +75,7 @@ const Restaurants = ({
     );
     localStorage.setItem(
       "lng", JSON.stringify(autocomplete.getPlace().geometry.location.lng())
-    );
+    ); 
   }
 
   useEffect(() => {
@@ -247,19 +248,7 @@ const Restaurants = ({
             isLoading={isLoading}
           />
         ) : (
-          
           <Box varient="body1" sx={styles.restosContentL}>
-             <Box>
-            { places? (
-              <Typography varient="body2" fontSize={15}>
-                Options Available
-              </Typography>
-          ) : (
-            <Typography varient="body2" fontSize={15}>
-                No Options Available for the choosen dates
-              </Typography>
-          )}
-            </Box>
             {isLoading ? (
               <Box
                 style={{
@@ -276,7 +265,7 @@ const Restaurants = ({
                 />
               </Box>
             ) : ( 
-              places?.map((place, i) => (
+              places.map((place, i) => (
                 <Box ref={elRefs[i]} key={i}>
                   {/* <hr style={styles.line2} /> */}
                   <Divider sx={{ margin: "30px 0px" }} />
@@ -289,7 +278,6 @@ const Restaurants = ({
                   </Box>
                 </Box>
               ))
-            
             )}
           </Box>
         )}
@@ -308,4 +296,4 @@ const Restaurants = ({
   );
 };
 
-export default Restaurants;
+export default Results;

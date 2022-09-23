@@ -14,3 +14,7 @@ Sources:
 
 
 
+To-dos:
+- work on End user authentication (https://cloud.google.com/run/docs/tutorials/identity-platform#cloudrun_postgres_secrets-nodejs)
+- implement Google Places autocomplete and use API for data
+- clean up code to handle errors better

@@ -74,7 +74,14 @@ const Home = ({ user, onLoad, onPlaceChanged }) => {
         budget: budget,
        }
     })
-    .then((response) => {setPlaces(places.splice(0, places.length, ...response.data));localStorage.setItem("places", places); _callback();});
+    .then((response) => {
+      if (!response.data || response.data.length == 0) {
+        const emptyDataError = new Error('Invalid data');
+        emptyDataError.statusCode = 500;
+        alert("Not included in test data")
+        throw emptyDataError;
+      }
+      setPlaces(places.splice(0, places.length, ...response.data));localStorage.setItem("places", places); _callback();});
   }
 
   const styles = {

@@ -6,7 +6,7 @@ const Context = ({ children }) => {
   const [destination, setDestination] = useState("Madrid");
   const [activity, setActivity] = useState("Restaurant");
   const [places, setPlaces] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [date, setDate] = useState(
     new Date().toISOString().split("T")[0]
   );
