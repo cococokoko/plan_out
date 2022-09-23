@@ -1,10 +1,11 @@
-*.env
+#*.env
 #*.json
 api_testing.py
 .vscode
 
 # OS generated files #
 ######################
+Backend/build/.env
 .idea/
 .DS_Store
 .DS_Store?
