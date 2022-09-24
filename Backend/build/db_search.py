@@ -23,15 +23,15 @@ engine = sqlalchemy.create_engine(engine_url, pool_size=3)
 
 
 def places():
-    df = pd.read_excel ("./Data.xlsx", sheet_name = ['Sheet1','Sheet2'], header = [0], parse_dates = True) 
+    df = pd.read_excel ("../../../Data.xlsx", sheet_name = ['Sheet1','Sheet2'], header = [0], parse_dates = True) 
     places = df.get('Sheet1')
     times = df.get('Sheet2')
     times['date'] = pd.to_datetime(times.date, format='YYYY-MM-DD').dt.date
  
     with engine.connect() as connection: 
-        #connection.execute("DROP TABLE place")
-        #connection.execute("DROP TABLE availabilites")
-        #connection.execute("DROP TABLE validation")
+        connection.execute("DROP TABLE place")
+        connection.execute("DROP TABLE availabilites")
+        connection.execute("DROP TABLE validation")
         connection.execute("CREATE TABLE place (id INT, name VARCHAR(200), activity VARCHAR(20), kitchen VARCHAR(50), address VARCHAR(200), latitude FLOAT, longitude FLOAT, area VARCHAR(50), price VARCHAR(10), capacity INT, bundle VARCHAR(50), image VARCHAR(300), days VARCHAR(50), hours VARCHAR(200), menu_1 VARCHAR(1000), price_menu_1 INT, menu_2 VARCHAR(100), price_menu_2 INT, details VARCHAR(1000), rating INT, reviews INT, PRIMARY KEY(id))")
         connection.execute("CREATE TABLE availabilites (id INT, place_id INT, availability VARCHAR(20), date VARCHAR(20), booking_id INT, PRIMARY KEY(id))")
         connection.execute("CREATE TABLE validation (id INT NOT NULL AUTO_INCREMENT, activity  VARCHAR(50), date VARCHAR(20), budget INT, guests INT, PRIMARY KEY(id))")
